@@ -1,13 +1,36 @@
-This is the code that drives the robot. 
+## Wireless Servo Control, with ESP as Access Point
 
-This is made with the skeleton provided by Professor Mehta from Lab 1. 
+### Usage: 
+- Connect phone or laptop to "ESP_XXXX" wireless network, where XXXX is the ID of the robot
+- Go to 192.168.4.1. 
+- A webpage with four buttons should appear. Click them to move the robot.
 
-Included Files: 
+### Installation: 
+- In Arduino, go to Tools > ESP8266 Sketch Data Upload to upload the files from ./data to the ESP
+- Then, in Arduino, compile and upload sketch to the ESP
 
-paperbot.ino - contains main loop for the paperbot, created on Arduino.  It has code to drive robot with various movement 
-functions.  It also contains the code for interfacing with the sensors.  It runs both the loop to connect over IP as well as 
-loops for testing the sensors and testing various simulation runs. 
+### Requirements:
+#### Arduino support for ESP8266 board
+- In Arduino, add URL to Files > Preferences > Additional Board Managers URL.
+- See https://learn.sparkfun.com/tutorials/esp8266-thing-hookup-guide/installing-the-esp8266-arduino-addon
 
-MPU9250.h and MPU9250.cpp - contains helper functions to interface with the IMU and use the gyroscope data. 
-We were having issues interfacing with the gyroscope so we found code online to help with it.
-Full credit is given for MPU9250.h and MPU9250.cpp in the comments at the top of both files to Borderflight. 
+#### Websockets library
+- To install, Sketch > Include Library > Manage Libraries... > Websockets > Install
+- https://github.com/Links2004/arduinoWebSockets
+
+#### ESP8266FS tool
+- To install, create "tools" folder in Arduino, download, and unzip. See 
+- https://github.com/esp8266/Arduino/blob/master/doc/filesystem.md#uploading-files-to-file-system
+
+### Hardware: 
+- NodeMCU Amica DevKit Board (ESP8266 chip)
+- Motorshield for NodeMCU 
+- 2 continuous rotation servos plugged into motorshield pins D1, D2
+- Ultra-thin power bank (available at https://www.amazon.com/dp/B01B2IQL42)
+- Paper chassis (see below)
+
+Red lines: cut / 
+Blue dotted lines: mountain fold / 
+Green dotted lines: valley fold
+![Paper chassis](/paperbot.svg "Paper chassis")
+
